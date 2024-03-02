@@ -45,12 +45,12 @@ namespace Lab01Shvachka.ViewModels
         }
         #endregion
 
+        #region Fields
         private ObservableCollection<BirthdayAnalysisModel> _dates;
         private DateAnalyser _dateAnalyser;
         private Visibility _visibility;
         private String _resultText;
-        private int _listViewWidth;
-        private int _listColumnWidth;
+        #endregion
         public BirthdayAnalysisViewModel()
         {
             SelectedDate = DateTime.Today;
@@ -59,34 +59,35 @@ namespace Lab01Shvachka.ViewModels
             ResultText = "\n\n\n\n";
         }
 
-        public ObservableCollection<BirthdayAnalysisModel> Dates 
-        { 
-            get 
+        #region Properties
+        public ObservableCollection<BirthdayAnalysisModel> Dates
+        {
+            get
             {
-                return _dates; 
+                return _dates;
             }
-            set 
+            set
             {
                 _dates = value;
-            } 
+            }
         }
-        
+
         public DateTime SelectedDate
         {
-            get; 
-            set; 
+            get;
+            set;
         }
         public BirthdayAnalysisModel ModelToDisplay
         {
             get; set;
         }
         public Visibility Visibility
-        {  
-           get
+        {
+            get
             {
                 return _visibility;
             }
-           set
+            set
             {
                 _visibility = value;
                 OnPropertyChanged();
@@ -104,29 +105,9 @@ namespace Lab01Shvachka.ViewModels
                 OnPropertyChanged();
             }
         }
-        public int ListViewWidth
-        {
-            get { return _listViewWidth; }
-            set
-            {
-                MessageBox.Show($"_listColumnWidth");
-                _listViewWidth = value;
-                ListColumnWidth = _listViewWidth / 4;
-                OnPropertyChanged();
-            }
-        }
+        #endregion
 
-        public int ListColumnWidth
-        {
-            get { return _listColumnWidth; }
-            set
-            {
-                _listColumnWidth = value;
-
-                OnPropertyChanged();
-            }
-        }
-
+        #region Methods
         public void ClearData()
         {
             Dates.Clear();
@@ -149,10 +130,10 @@ namespace Lab01Shvachka.ViewModels
 
             if (Dates.All(saved => saved.Date != SelectedDate))
             {
-                    Dates.Add(birthdayAnalysisModel);
+                Dates.Add(birthdayAnalysisModel);
             }
 
-            if(_dateAnalyser.IsBirthdayToday())
+            if (_dateAnalyser.IsBirthdayToday())
             {
                 MessageBox.Show("Happy Birthday!");
 
@@ -169,7 +150,8 @@ namespace Lab01Shvachka.ViewModels
                 return;
             }
             Visibility = Visibility.Visible;
-            ResultText = $"Date: {ModelToDisplay.Date} \nAge: {ModelToDisplay.Age} \nDays until birthday: {_dateAnalyser.CalculateDaysUntilBirthday()} \nWest. zodiac: {ModelToDisplay.WesternZodiac} \nChin. zodiac: {ModelToDisplay.ChineseZodiac}";
-        }
+            ResultText = $"Date: {ModelToDisplay.Date.ToShortDateString()} \nAge: {ModelToDisplay.Age} \nDays until birthday: {_dateAnalyser.CalculateDaysUntilBirthday()} \nWest. zodiac: {ModelToDisplay.WesternZodiac} \nChin. zodiac: {ModelToDisplay.ChineseZodiac}";
+        } 
+        #endregion
     }
 }
