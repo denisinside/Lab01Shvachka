@@ -50,6 +50,7 @@ namespace Lab01Shvachka.Tools
         }
     }
 
+    #region Enums
     public enum WesternZodiacSign
     {
         Ram,
@@ -79,6 +80,7 @@ namespace Lab01Shvachka.Tools
         Rooster,
         Dog,
         Pig
-    }
+    } 
+    #endregion
 
 }

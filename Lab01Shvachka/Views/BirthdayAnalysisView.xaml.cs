@@ -27,18 +27,5 @@ namespace Lab01Shvachka.Views
             InitializeComponent();
             DataContext = _viewModel = new BirthdayAnalysisViewModel();
         }
-
-        private void BirthdaysList_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            ListView listView = sender as ListView;
-            GridView gView = listView.View as GridView;
-
-            var workingWidth = listView.ActualWidth;
-
-            gView.Columns[0].Width = workingWidth * 0.25;
-            gView.Columns[1].Width = workingWidth * 0.25;
-            gView.Columns[2].Width = workingWidth * 0.25;
-            gView.Columns[3].Width = workingWidth * 0.25;
-        }
     }
 }

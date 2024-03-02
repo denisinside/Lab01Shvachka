@@ -59,7 +59,7 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding DateString}"/>
                     <GridViewColumn Header="Age"  DisplayMemberBinding="{Binding Age}"/>
                     <GridViewColumn Header="West. Zodiac sign" DisplayMemberBinding="{Binding WesternZodiac}"/>
                     <GridViewColumn Header="Chin. Zodiac Sign" DisplayMemberBinding="{Binding ChineseZodiac}"/>

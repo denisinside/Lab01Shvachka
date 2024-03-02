@@ -17,17 +17,25 @@ namespace Lab01Shvachka.Models
         private ChineseZodiacSign _cZodiac;
         #endregion
 
-        #region Properties
         public BirthdayAnalysisModel(DateTime date)
         {
             _date = date;
         }
 
+        #region Properties
         public DateTime Date
         {
             get
             {
                 return _date;
+            }
+        }
+
+        public String DateString
+        {
+            get
+            {
+                return _date.ToString("dd.MM.yyyy");
             }
         }
 
