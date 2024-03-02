@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# IDE0027: Use expression body for accessor
+dotnet_diagnostic.IDE0027.severity = suggestion
