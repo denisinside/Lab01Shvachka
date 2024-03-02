@@ -132,7 +132,7 @@ namespace Lab01Shvachka.ViewModels
 
             if (_dateAnalyser.IsBirthdayToday())
             {
-                MessageBox.Show("Happy Birthday!");
+                MessageBox.Show("Happy Birthday, dear Mr. Yablonskiy!");
 
             }
 
