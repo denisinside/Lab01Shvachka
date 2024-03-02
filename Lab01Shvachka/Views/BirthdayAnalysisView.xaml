@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region GridInit -->
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Color="#FFE6E6E6"/>
@@ -24,7 +25,10 @@
             <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
 
+
+        <!--#region DateInputArea -->
         <TextBlock Grid.Row="0" Grid.Column="0" Width="300" HorizontalAlignment="Left" TextAlignment="Center" Text="Input birthday date:"  Margin="0,12.5,0,0" FontSize="22" FontWeight="ExtraBold" Grid.ColumnSpan="2"/>
         <DatePicker Name="DatePicker" Grid.Row="1" Grid.Column="0" MinHeight="25" Width="250" VerticalAlignment="Center" Margin="25,10,25,10" SelectedDate="{Binding SelectedDate}" FirstDayOfWeek="Monday" IsTodayHighlighted="True" Background="#FF005BFF" Foreground="#FF0A329B" BorderBrush="#FF005BFF" />
 
@@ -36,9 +40,14 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
+        <!--#endregion-->
 
+        <!--#region ResultDisplayArea -->
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Text="{Binding ResultText, UpdateSourceTrigger=PropertyChanged}" Margin="0,25,25,10" Visibility="{Binding Visibility}" FontSize="22" FontFamily="Arial" FontWeight="DemiBold"></TextBlock>
+        <!--#endregion-->
 
+
+        <!--#region ResultHistoryArea -->
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Latest results" TextAlignment="Left"  VerticalAlignment="Center" Margin="25,0,0,0" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"></TextBlock>
         <Button Grid.Row="3" Grid.Column="1" Height="26" Width="120" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,25,5" Command="{Binding ClearCommand}" Content="Clear" FontSize="18" FontFamily="Arial" Grid.RowSpan="3">
             <Button.Background>
@@ -51,12 +60,13 @@
 
 
         <ListView Name="BirthdaysList" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" helpers:ListViewHelper.AutoResizeColumns="True" ItemsSource="{Binding Dates, UpdateSourceTrigger=PropertyChanged}" Margin="25,2,25,25" Background="#FFE8E8E8" Foreground="#FF0A329B" FontSize="16" BorderBrush="#FF005BFF">
-            <ListView.ItemContainerStyle>
+            <ListView.ItemContainerStyle>   <!-- Adding bottom border -->
                 <Style TargetType="ListViewItem">
                     <Setter Property="BorderBrush" Value="LightGray" />
                     <Setter Property="BorderThickness" Value="0,0,0,1" />
                 </Style>
             </ListView.ItemContainerStyle>
+            
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding DateString}"/>
@@ -66,6 +76,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <!--#endregion-->
 
     </Grid>
 </UserControl>

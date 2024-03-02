@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml.Linq;
 using Lab01Shvachka.Models;
 using Lab01Shvachka.Services;
 
@@ -33,7 +29,7 @@ namespace Lab01Shvachka.ViewModels
         {
             get
             {
-                return _calculate ??= new RelayCommand<object>(_ => AddBirthday());
+                return _calculate ??= new RelayCommand<object>(_ => AnalyseBirthday());
             }
         }
         public RelayCommand<object> ClearCommand
@@ -79,7 +75,8 @@ namespace Lab01Shvachka.ViewModels
         }
         public BirthdayAnalysisModel ModelToDisplay
         {
-            get; set;
+            get;
+            set;
         }
         public Visibility Visibility
         {
@@ -114,7 +111,7 @@ namespace Lab01Shvachka.ViewModels
             Visibility = Visibility.Hidden;
         }
 
-        public void AddBirthday()
+        public void AnalyseBirthday()
         {
             BirthdayAnalysisModel birthdayAnalysisModel = new(SelectedDate);
             try
@@ -124,7 +121,7 @@ namespace Lab01Shvachka.ViewModels
             }
             catch (ArgumentException)
             {
-                MessageBox.Show($"Incorrect birthday date. You must be older than 1 year and younger than 135.");
+                MessageBox.Show($"Incorrect birthday date.");
                 return;
             }
 

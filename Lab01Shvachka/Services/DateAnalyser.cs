@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Markup;
 using Lab01Shvachka.Models;
 using Lab01Shvachka.Tools;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lab01Shvachka.Services
 {
